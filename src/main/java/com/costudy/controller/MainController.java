@@ -51,6 +51,20 @@ public class MainController {
 		return "index";
 	}
 	
+	@GetMapping("/index")
+	public String index2(Model m, HttpServletRequest req) {
+		
+		HttpSession session = req.getSession();
+		
+		User user = (User) session.getAttribute("user");
+		
+		if(user != null) {
+			return "redirect:/dashboard";
+		}
+		
+		return "redirect:/";
+	}
+	
 	@GetMapping("/error")
 	public String error() {
 		return "error";
