@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "STUDY_GROUP")
+@Entity(name = "study_group")
 public class StudyGroup {
 	
 	@Id

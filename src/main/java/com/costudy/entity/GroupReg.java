@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name="GROUP_REG")
+@Entity(name="group_reg")
 public class GroupReg {
 	
 	@Id
