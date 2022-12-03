@@ -1,0 +1,160 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<style>
+#map-wrapper {
+	margin: 2.5em auto;
+	max-width: 960px;
+	overflow: hidden;
+}
+
+#map {
+	float: right;
+	width: 100%;
+	height: 200px;
+}
+
+@media screen and (max-width: 768px) {
+	#places, #map {
+		float: none;
+		width: auto;
+		margin-bottom: 1em;
+	}
+	#places {
+		text-align: center;
+	}
+	#map {
+		width: 100%;
+	}
+}
+</style>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="ui container">
+	<div class="ui secondary pointing menu">
+		<a class="item" th:href="@{/group/view(id=${studyGroup.groupID})}">
+			그룹 정보 </a> <br /> <br />
+
+		<div th:if="${user.userID == studyGroup.groupMaster}">
+			<a class="item active"
+				th:href="@{/group/modify(id=${studyGroup.groupID})}"> 그룹 정보 수정 </a>
+		</div>
+
+		<div th:if="${user.userID == studyGroup.groupMaster}">
+			<a class="item" th:href="@{/group/accept(id=${studyGroup.groupID})}">
+				가입 승인 </a>
+		</div>
+	</div>
+
+	<div th:if="${regState == null}">
+		<form method="post" action="/group/register">
+			<input type="hidden" name="groupID" th:value="${studyGroup.groupID}" />
+			<input type="hidden" name="userID" th:value="${user.userID}" /> <input
+				type="submit" class="ui red button" value="가입신청" />
+		</form>
+	</div>
+
+	<div th:if="${regState == '2'}">
+		<div>
+			<div th:if="${user.userID == studyGroup.groupMaster}"
+				class="left aligned">
+				<form action="/group/delete" method="post">
+					<input type="hidden" name="groupID"
+						th:value="${studyGroup.groupID}" /> <input type="submit"
+						class="ui red button" value="그룹 폐쇄" />
+				</form>
+			</div>
+		</div>
+
+		<div th:if="${message}" th:text="${message}" class="ui green message"></div>
+
+		<form class="ui form" action="/group/modify" method="post">
+			<input name="groupMaster" th:value="${studyGroup.groupMaster}"
+				type="hidden" />
+
+			<input name="groupMemCount" th:value="${studyGroup.groupMemCount}"
+				type="hidden" />
+
+			<input name="groupID" th:value="${studyGroup.groupID}" type="hidden" />
+			<input name="studyName" th:value="${studyGroup.studyName}" type="hidden" />
+
+			<!-- 그룹 정보 표시 -->
+			<table class="ui red table center aligned">
+				<thead>
+					<tr>
+						<th class="three wide">그룹 이름</th>
+						<th class="five wide"><span th:text="${studyGroup.studyName}"></span>
+						</th>
+						<th class="three wide">그룹장</th>
+						<th class="five wide"><span
+							th:text="${studyGroup.groupMaster}"></span></th>
+					</tr>
+					<tr>
+						<th class="three wide">스터디 시작</th>
+						<th class="five wide">
+							<div class="field">
+								<div class="ui equal width devided grid">
+									<div class="ui column">
+										<div class="ui calendar timepicker">
+											<div class="ui input left icon">
+												<i class="time icon"></i> <input type="text"
+													name="studyStart" placeholder="스터디 시작 시간"
+													th:value="${studyGroup.studyStart}">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</th>
+						<th class="three wide">스터디 종료</th>
+						<th class="five wide">
+							<div class="field">
+								<div class="ui equal width devided grid">
+									<div class="ui column">
+										<div class="ui calendar timepicker">
+											<div class="ui input left icon">
+												<i class="time icon"></i> <input type="text"
+													name="studyFinish" placeholder="스터디 종료 시간"
+													th:value="${studyGroup.studyFinish}">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="center aligned">
+						<td colspan="4">
+							<div class="map-wrapper">
+								<input type="hidden" id="initPlace"
+									data-coords="37.5650172,126.8494668" data-zoom="12" />
+								<div id="map"></div>
+
+								<div class="ui fluid input">
+									<input id="studyLocation" name="studyLocation"
+										placeholder="스터디 장소" th:value="${studyGroup.studyLocation}" type="hidden" />
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr class="center aligned">
+						<td colspan="4"><input class="ui green fluid button"
+							type="submit" value="수정 완료" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+
+	<br /> <br /> <br /> <br />
+</div>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div class="ui vertical stripe segment">
+	<div class="ui middle aligned stackable grid container">
+		<div class="row">
+			<div class="fifteen wide column" style="text-align: center;">
+				<th:block th:include="component/general/dashboard/dashboard_group_registered"></th:block>
+				<th:block th:include="component/general/dashboard/dashboard_group_register_waiting"></th:block>
+			</div>
+		</div>
+	</div>
+</div>
+</html>

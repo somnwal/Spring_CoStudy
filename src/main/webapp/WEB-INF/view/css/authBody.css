@@ -1,0 +1,13 @@
+body {
+	background-color: #ffffff;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: grayscale;
+}
+
+#authForm {
+  	height: 100%;
+}
+
+#authContent {
+  	max-width: 450px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="ui container">
+	<div class="ui animated red button" onClick="location.href='/group/add'" tabindex="0">
+		<div class="visible content">
+			<i class="plus square icon"></i> 그룹 만들기
+		</div>
+
+		<div class="hidden content">
+			<i class="right arrow icon"></i>
+		</div>
+	</div>
+	<br /> 
+
+	<div th:if="${error}" th:text="${error}" class="ui red message"></div>
+	
+	<br />
+
+	<div class="ui link cards">
+		<div th:each="group : ${groupList}">
+			<div class="ui card" th:onClick="'location.href=\'' + @{/group/view(id=${group.groupID})} + '\''">
+				<div class="content">
+					<div class="header" th:text="${group.studyName}"></div>
+					<div class="meta"></div>
+
+					<div class="description">
+						<p></p>
+					</div>
+				</div>
+
+				<div class="extra content">
+					<div class="ui equal width grid">
+						<div class="right aligned column">
+							<span th:text="${group.groupMemCount}"></span> / 50 명
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br /> <br /> <br /> <br /> <br />
+</html>

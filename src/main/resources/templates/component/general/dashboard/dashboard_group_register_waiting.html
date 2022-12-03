@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div id="groupRegistered">
+	<br />
+
+	<h3 class="ui horizontal divider header">
+		<i class="book icon"></i> 가입 대기 중인 그룹
+	</h3>
+
+	<div class="ui red segments">
+		<div th:each=" group : ${waiting}">
+			<div class="ui black segment">
+				<div class="ui right aligned grid">
+					<div class="left aligned eleven wide column">
+						<span th:text="${group.studyName}"></span>
+					</div>
+
+					<div class="five wide column">
+						<a class="ui blue button"
+							th:href="@{/group/view(id=${group.groupID})}">바로가기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</html>

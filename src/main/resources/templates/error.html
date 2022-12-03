@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/authBody.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<style>
+#btnLogin {
+	margin-right: 0.5em;
+}
+</style>
+
+<title>코스터디 :: 에러</title>
+</head>
+<body>
+<body id="root">
+	<th:block th:include="component/auth/auth_header"></th:block>
+	<th:block th:include="component/general/error_body"></th:block>
+	<th:block th:include="component/general/footer"></th:block>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</body>
+</html>

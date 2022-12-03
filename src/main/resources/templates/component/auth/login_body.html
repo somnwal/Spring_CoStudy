@@ -1,0 +1,35 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<div class="ui middle aligned center aligned grid" id="authForm">
+	<div class="column" id="authContent">
+		<h2 class="ui center aligned header">코스터디 로그인</h2>
+
+		<form class="ui large form" action="/login" method="POST">
+			<div class="ui stacked segment">
+				<div class="field">
+					<div class="ui left icon input">
+						<i class="user icon"></i> <input name="userID" placeholder="아이디"
+							type="text" />
+					</div>
+				</div>
+
+				<div class="field">
+					<div class="ui left icon input">
+						<i class="lock icon"></i> <input name="userPassword"
+							placeholder="비밀번호" type="password" />
+					</div>
+				</div>
+
+				<div class="ui fluid large red submit button">로그인</div>
+			</div>
+
+			<div th:if="${error}" th:text="${error}" class="ui red message"></div>
+		</form>
+
+		<div class="ui message">
+			처음이신가요?<a href="/register"> 회원가입</a>
+		</div>
+	</div>
+</div>
+</html>
