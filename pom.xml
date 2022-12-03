@@ -11,7 +11,7 @@
 	<groupId>com.costudy</groupId>
 	<artifactId>CoStudy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>CoStudy</name>
 	<description>CoStudy Spring</description>
 	<properties>
