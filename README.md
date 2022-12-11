@@ -7,5 +7,5 @@
 <br>
 <br>
 
-# 사용기술
-BackEnd
+# 상세보기
+[Notion](https://somnwal.notion.site/CoStudy-2e5222f515d24232bd4462ecb53ce30b)
