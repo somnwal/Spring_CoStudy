@@ -3,7 +3,9 @@
 
 <a href="http://costudy.duckdns.org:50561"><img src="https://img.shields.io/badge/Live-Demo-EE0000?style=flat-square&logo=Openlayers&logoColor=white"/></a>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a0783799-0cb2-449f-9459-6da93c2ec6a9/Untitled.png)
+<center style="text-align: center">
+  <img style="text-align: center" width="943" alt="화면 캡처 2022-12-11 163142" src="https://user-images.githubusercontent.com/90139018/206891573-7a3768cf-8da6-4901-9819-d497ce41e77f.png">
+</center>
 
 <br>
 <br>
