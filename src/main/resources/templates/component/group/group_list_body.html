@@ -9,6 +9,12 @@
 <br />
 <br />
 
+<style>
+	.ui .card {
+		display: block;
+	}
+</style>
+
 <div class="ui container">
 	<div class="ui animated red button" onClick="location.href='/group/add'" tabindex="0">
 		<div class="visible content">
@@ -27,10 +33,23 @@
 
 	<div class="ui link cards">
 		<div th:each="group : ${groupList}">
-			<div class="ui card" th:onClick="'location.href=\'' + @{/group/view(id=${group.groupID})} + '\''">
+			<div class="ui card" style="margin-right:1vh; margin-top: 1rem;" th:onClick="'location.href=\'' + @{/group/view(id=${group.groupID})} + '\''">
 				<div class="content">
+					
 					<div class="header" th:text="${group.studyName}"></div>
-					<div class="meta"></div>
+					
+					<div class="meta" style="margin-top: 1rem;">
+						<h4>
+							<span th:text="${group.studyStart}"></span> ~ <span th:text="${group.studyFinish}"></span>
+						</h4>
+					</div>
+					
+					<br/>
+					<br/>
+					
+					<div class="ui right floated">
+						<i class="user outline icon"></i> <span th:text="${group.groupMaster}"></span>
+					</div>
 
 					<div class="description">
 						<p></p>
@@ -39,8 +58,10 @@
 
 				<div class="extra content">
 					<div class="ui equal width grid">
-						<div class="right aligned column">
-							<span th:text="${group.groupMemCount}"></span> / 50 명
+						<div class="row">
+							<div class="right aligned column">
+								<span th:text="${group.groupMemCount}"></span> / 50 명
+							</div>
 						</div>
 					</div>
 				</div>
