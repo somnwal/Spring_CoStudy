@@ -1,4 +1,4 @@
-# CoStudy_Spring
+# Spring CoStudy
 스터디 모임을 위한 웹사이트(SpringBoot)
 
 <center style="text-align: center">
